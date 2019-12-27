@@ -2,25 +2,39 @@ import React, { Component } from "react";
 
 class Form extends Component {
   state = {
-    fistName: "",
+    firstName: "",
     lastName: "",
     people: []
   };
 
   handleChange = event => {
-    console.log(event.target.name);
-    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: [event.target.value]
+    });
   };
-  handlesubmit = event => {};
+  handlesubmit = event => {
+    event.preventDefault();
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    console.log(firstName, lastName);
+    if (firstName.length > 0 && lastName.length > 0) {
+      const person = `${firstName} ${lastName}`;
+      this.setState({
+        people: [...this.state.people, person],
+        firstName: "",
+        lastName: ""
+      });
+    }
+  };
   render() {
     return (
       <section>
         <article>
-          <form>
+          <form onSubmit={this.handlesubmit}>
             <input
               type="text"
               name="firstName"
-              value={this.state.fistName}
+              value={this.state.firstName}
               onChange={this.handleChange}
             />
             <input
@@ -29,14 +43,14 @@ class Form extends Component {
               value={this.state.lastName}
               onChange={this.handleChange}
             />
-            <button type="submit" onSubmit={this.handlesubmit}>
-              submit
-            </button>
+            <button type="submit">submit</button>
           </form>
         </article>
         <article>
           <h1>People on the list</h1>
-          <div>{this.state.people}</div>
+          <ul>
+            <li>{this.state.people}</li>
+          </ul>
         </article>
       </section>
     );
