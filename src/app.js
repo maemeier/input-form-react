@@ -1,53 +1,26 @@
 import React, { Component } from "react";
+import uuid from "uuid";
+import "bootstrap/dist/css/bootstrap.min.css";
+import TodoInput from "./todoInput";
 
-class Form extends Component {
-  state = {
-    fistName: "",
-    lastName: "",
-    people: []
-  };
-
-  handleChange = event => {
-    console.log(event.target.name);
-    console.log(event.target.value);
-  };
-  handlesubmit = event => {};
-  render() {
-    return (
-      <section>
-        <article>
-          <form>
-            <input
-              type="text"
-              name="firstName"
-              value={this.state.fistName}
-              onChange={this.handleChange}
-            />
-            <input
-              type="text"
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-            <button type="submit" onSubmit={this.handlesubmit}>
-              submit
-            </button>
-          </form>
-        </article>
-        <article>
-          <h1>People on the list</h1>
-          <div>{this.state.people}</div>
-        </article>
-      </section>
-    );
-  }
-}
+import TodoList from "./todoList";
 
 class App extends Component {
+  state = {
+    items: [
+      { id: 1, title: "wake up" },
+      { id: 2, title: "water plants" },
+      { id: 3, title: "make breakfast" }
+    ],
+    id: uuid()
+  };
   render() {
+    console.log(this.state);
     return (
       <div>
-        <Form />
+        App Component
+        <TodoInput />
+        <TodoList />
       </div>
     );
   }
