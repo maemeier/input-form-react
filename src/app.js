@@ -12,15 +12,48 @@ class App extends Component {
       { id: 2, title: "water plants" },
       { id: 3, title: "make breakfast" }
     ],
-    id: uuid()
+    id: uuid(),
+    item: "",
+    editItem: false
+  };
+
+  handleChange = event => {
+    console.log("handle change");
+  };
+
+  handleSubmit = event => {
+    console.log("handle submit");
+  };
+
+  handleClearList = () => {
+    console.log("clear");
+  };
+
+  handleEdit = id => {
+    console.log(`handleEdit ${id}`);
+  };
+  handleDelete = id => {
+    console.log(`handleDelete ${id}`);
   };
   render() {
-    console.log(this.state);
     return (
-      <div>
-        App Component
-        <TodoInput />
-        <TodoList />
+      <div className="container">
+        <div className="row">
+          <div className="col-10 mx-auto col-md-8 mt-5" />
+          <h3 className="text-capitalize text-center">Todo Input</h3>
+        </div>
+        <TodoInput
+          item={this.state.item}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          editItem={this.state.editItem}
+        />
+        <TodoList
+          items={this.state.items}
+          handleClearList={this.handleClearList}
+          handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
+        />
       </div>
     );
   }
