@@ -2,7 +2,15 @@ import React from "react";
 
 class TodoList extends React.Component {
   render() {
-    return <div>TodoList Component</div>;
+    const { items, handleClearList, handeDeletem, handleEdit } = this.props;
+    return (
+      <div>
+        <ul className="list-group-my-5">
+          {" "}
+          <h3 className="text-capitalzie text-center">Todo List</h3>
+        </ul>
+      </div>
+    );
   }
 }
 

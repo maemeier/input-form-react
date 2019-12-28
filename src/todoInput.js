@@ -24,7 +24,7 @@ class TodoInput extends React.Component {
           </div>
           <button
             type="submit"
-            class="btn-block btn-primary mt-3 text-uppercase"
+            className="btn-block btn-primary mt-3 text-uppercase"
           >
             {" "}
             Add item
