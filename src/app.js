@@ -8,9 +8,9 @@ import TodoList from "./todoList";
 class App extends Component {
   state = {
     items: [
-      { id: 1, title: "wake up" },
-      { id: 2, title: "water plants" },
-      { id: 3, title: "make breakfast" }
+      { id: 1, title: "Steal Robert's ballet shoes" },
+      { id: 2, title: "Kidnap Jeff's dog" },
+      { id: 3, title: "Hack Edgard's github with HTML" }
     ],
     id: uuid(),
     item: "",
@@ -31,15 +31,12 @@ class App extends Component {
       title: this.state.item
     };
     const updateItems = [...this.state.item, newItem];
-    this.setState(
-      {
-        items: updateItems,
-        item: "",
-        id: uuid(),
-        editItem: false
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: updateItems,
+      item: "",
+      id: uuid(),
+      editItem: false
+    });
   };
 
   handleClearList = () => {
@@ -57,7 +54,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-5">
-            <h3 className="text-capitalzie text-center">Todo Input</h3>
+            <h3 className="text-capitalzie text-center">Add your list</h3>
           </div>
         </div>
         <TodoInput
