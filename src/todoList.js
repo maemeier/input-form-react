@@ -4,7 +4,8 @@ import Item from "./todoItem";
 
 class TodoList extends React.Component {
   render() {
-    const { items, handleClearList, handeDelete, handleEdit } = this.props;
+    const { items, handleClearList, handleDelete, handleEdit } = this.props;
+
     return (
       <div>
         <ul className="list-group  my-5">
@@ -15,7 +16,7 @@ class TodoList extends React.Component {
               <TodoItem
                 key={item.id}
                 title={item.title}
-                handeDelete={() => handeDelete(item.id)}
+                handleDelete={() => handleDelete(item.id)}
                 handleEdit={() => handleEdit(item.id)}
               />
             );
