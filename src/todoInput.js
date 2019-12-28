@@ -18,8 +18,17 @@ class TodoInput extends React.Component {
               type="text"
               className="form-control  text-capitalize"
               placeholder="add todo item"
+              value={item}
+              onChange={handleChange}
             />
           </div>
+          <button
+            type="submit"
+            class="btn-block btn-primary mt-3 text-uppercase"
+          >
+            {" "}
+            Add item
+          </button>
         </form>
       </div>
     );
